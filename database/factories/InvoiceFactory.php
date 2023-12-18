@@ -2,11 +2,10 @@
 
 namespace Database\Factories;
 
+use App\Models\Invoice;
+use App\Models\Customer;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
-/**
- * @extends \Illuminate\Database\Eloquent\Factories\Factory<\Database\migrations\Models\Invoice>
- */
 class InvoiceFactory extends Factory
 {
     /**
@@ -16,8 +15,14 @@ class InvoiceFactory extends Factory
      */
     public function definition(): array
     {
+        $status = $this->faker->randomElement(['B', 'P', 'V']);
+
         return [
-            //
+            'customer_id' => Customer::factory(),
+            'amount' => $this->faker->randomFloat(2, 1, 10000),
+            'status' => $status,
+            'billing_date' => $this->faker->dateTimeThisDecade(),
+            'paid_date' => $status === 'P' ? $this->faker->dateTimeThisDecade() : null,
         ];
     }
 }
