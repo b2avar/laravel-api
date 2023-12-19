@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\StoreInvoiceRequest;
 use App\Http\Requests\UpdateInvoiceRequest;
-use Database\migrations\Models\Invoice;
+use App\Models\Invoice;
 
 class InvoiceController extends Controller
 {

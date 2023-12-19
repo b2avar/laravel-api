@@ -2,8 +2,8 @@
 
 namespace App\Policies;
 
-use Database\migrations\Models\Customer;
-use Database\migrations\Models\User;
+use App\Models\Customer;
+use App\Models\User;
 
 class CustomerPolicy
 {

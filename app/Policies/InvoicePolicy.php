@@ -2,8 +2,8 @@
 
 namespace App\Policies;
 
-use Database\migrations\Models\Invoice;
-use Database\migrations\Models\User;
+use App\Models\Invoice;
+use App\Models\User;
 
 class InvoicePolicy
 {
