@@ -9,10 +9,14 @@ class Customer extends Model
 {
     use HasFactory;
 
-    protected $guarded = [];
-
-    protected $casts = [
-        'active' => 'boolean',
+    protected $fillable = [
+        'name',
+        'type',
+        'email',
+        'address',
+        'city',
+        'state',
+        'postal_code',
     ];
 
     public function invoices()
