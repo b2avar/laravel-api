@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\Api\V1\CustomerController;
+use App\Http\Controllers\Api\V1\InvoiceController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -19,11 +21,11 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 
 // api/v1
-Route::group(['prefix' => 'v1', 'namespace' => 'App\Http\Controllers\Api\V1'], function () {
+Route::group(['prefix' => 'v1', 'namespace' => 'App\Http\Controllers\Api\V1', 'middleware' => 'auth:sanctum'], function () {
     // api/v1/customers
-    Route::apiResource('customers', 'CustomerController');
+    Route::apiResource('customers', CustomerController::class);
     // api/v1/invoices
-    Route::apiResource('invoices', 'InvoiceController');
+    Route::apiResource('invoices', InvoiceController::class);
 
     Route::post('invoices/bulk', ['uses' => 'InvoiceController@bulkStore']);
 });
